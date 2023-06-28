@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Displaying Country Flags in Console
+    </title>
+    
+</head>
+
+<body>
+    <script>
+        var prog= new XMLHttpRequest(); 
+        var method="GET";
+        var url= "https://restcountries.com/v3.1/all";
+
+        prog.open(method,url,true);
+        
+        prog.onload= function()
+        {
+            if(prog.status===200)
+            {
+               var obj= JSON.parse(prog.response);
+        
+                for(var i=0; i<obj.length;i++)
+                {
+                    console.log(obj[i].name.official,obj[i].flag);
+                    console.log("------------------------------------------------------------------------------------------------------------------------------")
+                }
+            }
+            else
+            {
+
+                console.log('Requst Failed',prog.status);
+            }
+        }
+        prog.send();
+    </script>
+</body>
+
+</html>
