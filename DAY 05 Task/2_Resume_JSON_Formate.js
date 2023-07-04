@@ -74,7 +74,8 @@ var resume = {
     var experience = resume.experience[i];
     console.log("- " + experience.position + " at " + experience.company + ", " + experience.duration);
     console.log("  Responsibilities:");
-    for (var j = 0; j < experience.responsibilities.length; j++) {
+    for (var j = 0; j < experience.responsibilities.length; j++) 
+    {
       console.log("  - " + experience.responsibilities[j]);
     }
   }
