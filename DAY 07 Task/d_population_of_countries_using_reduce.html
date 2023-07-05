@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Population of All Countries</title>
+</head>
+<body>
+    <script>
+        var prog = new XMLHttpRequest();
+        var method = "GET";
+        var url = "https://restcountries.com/v3.1/all";
+
+        prog.open(method, url, true);
+
+        prog.onload = function () 
+        {
+            if (prog.status === 200) 
+            {
+                var obj = JSON.parse(prog.response);
+                const totalPopulation = obj.reduce((total, country) => total + country.population, 0);
+        console.log('Total population of All countries:', totalPopulation);
+            } 
+            else 
+            {
+                console.log('Request Failed', prog.status);
+            }
+        };
+
+        prog.send();
+    </script>
+</body>
+</html>

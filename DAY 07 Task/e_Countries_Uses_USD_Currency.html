@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countries Using USD $ Currency</title>
+</head>
+<body>
+    <script>
+        var prog = new XMLHttpRequest();
+        var method = "GET";
+        var url = "https://restcountries.com/v3.1/all";
+
+        prog.open(method, url, true);
+
+        prog.onload = function () 
+        {
+            if (prog.status === 200) 
+            {
+                var obj = JSON.parse(prog.response);
+                const countriesWithUSD = obj.filter(country => country.currencies && country.currencies.USD);
+                console.log(`Countries Which uses USD $ as Their Currency:`); 
+                countriesWithUSD.forEach(country => {
+
+                    console.log(`${(country.name.common)} is Using USD $`);
+                    
+                });
+            } 
+            else 
+            {
+                console.log('Request Failed', prog.status);
+            }
+        };
+
+        prog.send();
+    </script>
+</body>
+</html>

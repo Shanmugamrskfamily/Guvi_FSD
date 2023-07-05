@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Countries  Name, Capital, Flag </title>
+</head>
+<body>
+    <script>
+        var prog = new XMLHttpRequest();
+        var method = "GET";
+        var url = "https://restcountries.com/v3.1/all";
+
+        prog.open(method, url, true);
+
+        prog.onload = function () 
+        {
+            if (prog.status === 200) 
+            {
+                var obj = JSON.parse(prog.response);
+                console.log(`Countries Details are Below: \n`);
+                obj.forEach(country => {
+                    console.log(`Country Name: ${(country.name.common)}
+Capital of ${(country.name.common)} : ${(country.capital)}
+Flag of ${(country.name.common)}: ${(country.flag)}
+_______________________________________________________________________________________________________________________________`);
+                    });
+            } 
+            else 
+            {
+                console.log('Request Failed', prog.status);
+            }
+        };
+
+        prog.send();
+    </script>
+</body>
+</html>
