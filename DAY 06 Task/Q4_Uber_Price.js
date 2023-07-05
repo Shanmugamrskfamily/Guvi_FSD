@@ -14,6 +14,7 @@ class Uber
   }
   
   let data = new Uber(20, 25);
-  
-  console.log(`Your Total Uber Fare is: ${data.get_taxi_fare()}`);
+  console.log(`Uber Price Per K.M: ${data.unit_price}
+Total K.M of your Trip: ${data.km}
+Your Total Uber Fare is: ${data.get_taxi_fare()}`);
   
