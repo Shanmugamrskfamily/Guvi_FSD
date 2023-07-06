@@ -17,10 +17,10 @@
             {
                 var obj = JSON.parse(prog.response);
                 const countriesWithUSD = obj.filter(country => country.currencies && country.currencies.USD);
-                console.log(`Countries Which uses USD $ as Their Currency:`); 
-                countriesWithUSD.forEach(country => {
+                console.log(`Countries Which are uses USD $ as Their Currency:`); 
+                countriesWithUSD.forEach((country, index) => {
 
-                    console.log(`${(country.name.common)} is Using USD $`);
+                    console.log(`${index + 1}.${(country.name.common)} is Using USD $`);
                     
                 });
             } 

@@ -9,27 +9,26 @@
         var method = "GET";
         var url = "https://restcountries.com/v3.1/all";
 
-        prog.open(method, url, true);
+            prog.open(method, url, true);
 
-        prog.onload = function () 
+    prog.onload = function () 
+    {
+        if (prog.status === 200) 
         {
-            if (prog.status === 200) 
-            {
-                var obj = JSON.parse(prog.response);
-                const asiaCountries = obj.filter(country => country.region === 'Asia')
-                console.log(`Countries in Asia Region and Continent are Below: \n`)
-                asiaCountries.forEach(country => {
-                    console.log(country.name.common);
-                    
-                });
-            } 
-            else 
-            {
-                console.log('Request Failed', prog.status);
-            }
-        };
+            var obj = JSON.parse(prog.response);
+            const asiaCountries = obj.filter(country => country.region === 'Asia');
+            console.log("Countries in Asia Region and Continent are Below: \n");
+            asiaCountries.forEach((country, index) => {
+                console.log(`${index + 1}: ${country.name.common}`);
+            });
+        } 
+        else 
+        {
+            console.log('Request Failed', prog.status);
+        }
+    };
 
-        prog.send();
-    </script>
+    prog.send();
+</script>
 </body>
 </html>

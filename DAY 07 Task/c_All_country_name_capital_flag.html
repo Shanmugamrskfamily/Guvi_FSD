@@ -17,10 +17,10 @@
             {
                 var obj = JSON.parse(prog.response);
                 console.log(`Countries Details are Below: \n`);
-                obj.forEach(country => {
-                    console.log(`Country Name: ${(country.name.common)}
-Capital of ${(country.name.common)} : ${(country.capital)}
-Flag of ${(country.name.common)}: ${(country.flag)}
+                obj.forEach((country, index) => {
+                    console.log(`${index + 1}.Country Name: ${(country.name.common)}
+    Capital of ${(country.name.common)} : ${(country.capital)}
+    Flag of ${(country.name.common)}: ${(country.flag)}
 _______________________________________________________________________________________________________________________________`);
                     });
             } 

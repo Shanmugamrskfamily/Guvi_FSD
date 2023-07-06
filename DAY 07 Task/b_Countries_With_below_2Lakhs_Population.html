@@ -18,9 +18,9 @@
                 var obj = JSON.parse(prog.response);
                 const countriesWithLessPopulation = obj.filter(country => country.population < 200000);
                 console.log('Countries with a population of less than 2 lakhs:');
-                countriesWithLessPopulation.forEach(country => 
+                countriesWithLessPopulation.forEach((country, index) => 
                 {
-                    console.log(`${(country.name.common)} Population is ${(country.population)}`);
+                    console.log(`${index + 1}:${(country.name.common)} Population is ${(country.population)}`);
                 });
             } 
             else 
