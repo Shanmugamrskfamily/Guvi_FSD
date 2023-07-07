@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>All Countries  Name, Capital, Flag </title>
-</head>
-<body>
+  <head>
+    <title>All Countries Name, Capital, Flag</title>
+  </head>
+  <body>
     <script>
-        var prog = new XMLHttpRequest();
-        var method = "GET";
-        var url = "https://restcountries.com/v3.1/all";
+      var prog = new XMLHttpRequest();
+      var method = "GET";
+      var url = "https://restcountries.com/v3.1/all";
 
-        prog.open(method, url, true);
+      prog.open(method, url, true);
 
-        prog.onload = function () 
-        {
-            if (prog.status === 200) 
-            {
-                var obj = JSON.parse(prog.response);
-                console.log(`Countries Details are Below: \n`);
-                obj.forEach((country, index) => {
-                    console.log(`${index + 1}.Country Name: ${(country.name.common)}
-    Capital of ${(country.name.common)} : ${(country.capital)}
-    Flag of ${(country.name.common)}: ${(country.flag)}
+      prog.onload = function () {
+        if (prog.status === 200) {
+          var obj = JSON.parse(prog.response);
+          console.log(`Countries Details are Below: \n`);
+          obj.forEach((country, index) => {
+            console.log(`${index + 1}.Country Name: ${country.name.common}
+Capital of ${country.name.common} : ${country.capital}
+Flag of ${country.name.common}: ${country.flag}
 _______________________________________________________________________________________________________________________________`);
-                    });
-            } 
-            else 
-            {
-                console.log('Request Failed', prog.status);
-            }
-        };
+          });
+        } else {
+          console.log("Request Failed", prog.status);
+        }
+      };
 
-        prog.send();
+      prog.send();
     </script>
-</body>
+  </body>
 </html>
