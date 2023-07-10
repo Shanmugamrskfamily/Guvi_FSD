@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
     <title>Countries Using USD $ Currency</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        var prog = new XMLHttpRequest();
-        var method = "GET";
-        var url = "https://restcountries.com/v3.1/all";
+      var prog = new XMLHttpRequest();
+      var method = "GET";
+      var url = "https://restcountries.com/v3.1/all";
 
-        prog.open(method, url, true);
+      prog.open(method, url, true);
 
-        prog.onload = function () 
-        {
-            if (prog.status === 200) 
-            {
-                var obj = JSON.parse(prog.response);
-                const countriesWithUSD = obj.filter(country => country.currencies && country.currencies.USD);
-                console.log(`Countries Which are uses USD $ as Their Currency:`); 
-                countriesWithUSD.forEach((country, index) => {
+      prog.onload = function () {
+        if (prog.status === 200) {
+          var obj = JSON.parse(prog.response);
+          const countriesWithUSD = obj.filter(
+            (country) => country.currencies && country.currencies.USD,
+          );
+          console.log(`Countries Which are uses USD $ as Their Currency:`);
+          countriesWithUSD.forEach((country, index) => {
+            console.log(`${index + 1}.${country.name.common} is Using USD $`);
+          });
+        } else {
+          console.log("Request Failed", prog.status);
+        }
+      };
 
-                    console.log(`${index + 1}.${(country.name.common)} is Using USD $`);
-                    
-                });
-            } 
-            else 
-            {
-                console.log('Request Failed', prog.status);
-            }
-        };
-
-        prog.send();
+      prog.send();
     </script>
-</body>
+  </body>
 </html>

@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Countries With below 2 Lakhs Population</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        var prog = new XMLHttpRequest();
-        var method = "GET";
-        var url = "https://restcountries.com/v3.1/all";
+      var prog = new XMLHttpRequest();
+      var method = "GET";
+      var url = "https://restcountries.com/v3.1/all";
 
-        prog.open(method, url, true);
+      prog.open(method, url, true);
 
-        prog.onload = function () 
-        {
-            if (prog.status === 200) 
-            {
-                var obj = JSON.parse(prog.response);
-                const countriesWithLessPopulation = obj.filter(country => country.population < 200000);
-                console.log('Countries with a population of less than 2 lakhs:');
-                countriesWithLessPopulation.forEach((country, index) => 
-                {
-                    console.log(`${index + 1}:${(country.name.common)} Population is ${(country.population)}`);
-                });
-            } 
-            else 
-            {
-                console.log('Request Failed', prog.status);
-            }
-        };
+      prog.onload = function () {
+        if (prog.status === 200) {
+          var obj = JSON.parse(prog.response);
+          const countriesWithLessPopulation = obj.filter(
+            (country) => country.population < 200000,
+          );
+          console.log("Countries with a population of less than 2 lakhs:");
+          countriesWithLessPopulation.forEach((country, index) => {
+            console.log(
+              `${index + 1}:${country.name.common} Population is ${
+                country.population
+              }`,
+            );
+          });
+        } else {
+          console.log("Request Failed", prog.status);
+        }
+      };
 
-        prog.send();
+      prog.send();
     </script>
-</body>
+  </body>
 </html>
