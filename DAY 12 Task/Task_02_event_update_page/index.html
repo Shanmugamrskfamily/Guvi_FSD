@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marakuma Nenjam</title>
+    <style>
+      html {
+        background-image: linear-gradient(
+          rgb(243, 237, 236),
+          rgb(112, 217, 222),
+          rgb(243, 194, 88)
+        );
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 4px solid black;
+        border-radius: 5px;
+      }
+      .content_ {
+        display: flex;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 4px solid black;
+        border-radius: 5px;
+      }
+
+      .image-container {
+        flex: 1;
+        padding-right: 20px;
+      }
+
+      .image-container img {
+        margin-top: 20px;
+        max-width: 100%;
+        height: 300px;
+      }
+
+      .content-container {
+        flex: 1;
+      }
+
+      h1 {
+        color: rgb(50, 47, 216);
+        text-align: center;
+        margin-top: 0;
+        width: 100%;
+      }
+
+      h3 {
+        color: red;
+        text-align: center;
+        margin-top: 0;
+        width: 100%;
+      }
+
+      label,
+      input,
+      select {
+        display: block;
+        width: 100%;
+        height: 20px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #69ce5c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #08420e;
+      }
+
+      /* Added styles to create two columns */
+      @media (min-width: 600px) {
+        .container {
+          flex-wrap: wrap;
+        }
+
+        .image-container {
+          flex: 0 0 300px;
+        }
+
+        .content-container {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎸MARAKUMA NENJAM🎼🎙️</h1>
+      <h3>Number of available seats: 250</h3>
+      <div class="content_">
+        <div class="image-container">
+          <img src="event_img.jpg" alt="Marakuma Nenjam" />
+        </div>
+        <div class="content-container">
+          <label for="name" class="name">Name:</label>
+          <input type="text" id="name" />
+          <label for="email" class="email">E-mail: </label>
+          <input type="email" id="email" />
+          <label for="phone_no" class="phone_no">Phone No: </label>
+          <input type="number" id="phone_no" />
+          <label for="seats" class="seats">Number of seats(Max 10):</label>
+          <select name="seatlist" id="seat" onchange="createInputFields()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+
+          <div id="inputFields"></div>
+
+          <button id="submit">Submit</button>
+          <button id="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function createInputFields() {
+        const seatCount = parseInt(document.getElementById("seat").value);
+        const inputFieldsContainer = document.getElementById("inputFields");
+
+        if (seatCount === 0) {
+          inputFieldsContainer.innerHTML = "";
+          return;
+        }
+        inputFieldsContainer.innerHTML = "";
+
+        for (let i = 1; i < seatCount; i++) {
+          const label = document.createElement("label");
+          label.textContent = `Name of Attendee ${i + 1}:`;
+
+          const input = document.createElement("input");
+          input.type = "text";
+          input.name = `seat${i + 1}`;
+
+          inputFieldsContainer.appendChild(label);
+          inputFieldsContainer.appendChild(input);
+        }
+      }
+    </script>
+  </body>
+</html>
