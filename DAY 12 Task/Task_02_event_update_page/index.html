@@ -89,9 +89,35 @@
       }
 
       /* Added styles to create two columns */
-      @media (min-width: 600px) {
+      @media (min-width: 200px) and (max-width: 767px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .content_ {
+          flex-direction: column;
+        }
+
+        .image-container {
+          padding-right: 0;
+          text-align: center;
+        }
+
+        .content-container {
+          text-align: center;
+        }
+
+        .image-container img {
+          height: auto;
+        }
+      }
+      @media (min-width: 768px) {
+        .content_ {
+          flex-wrap: wrap;
+        }
         .container {
           flex-wrap: wrap;
+          font-size: 50%;
         }
 
         .image-container {
