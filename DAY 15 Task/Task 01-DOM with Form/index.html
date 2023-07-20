@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>DOM Manipulation with Forms</title>
+  </head>
+  <body>
+    <form id="form">
+      <h1 id="title">DOM Manipulation with Forms</h1>
+      <p id="description">
+        <span id="des_short">Short Discription:</span>
+        <br />
+        This program is an HTML document that demonstrates the implementation of
+        a form and table using HTML, CSS, and DOM manipulation. The form
+        includes fields for capturing user information such as first name, last
+        name, address, pincode, gender, choice of food (selectable from multiple
+        options), state, and country. Upon submitting the form, the entered
+        values are appended to a table dynamically.
+        <br />
+        <br />
+        With the help of JavaScript and DOM manipulation, form submission is
+        intercepted and processed to extract the user-entered data. The
+        extracted data is then used to create a new row in the table,
+        effectively updating the table with the submitted information. After
+        submission, the form fields are cleared to allow for the next data
+        entry.
+      </p>
+      <span class="form_topic">Fill This Form Below</span>
+      <div class="form-group">
+        <label for="first-name">First Name:</label>
+        <input
+          type="text"
+          id="first-name"
+          class="f_name"
+          placeholder="Enter your first name"
+          required />
+        <br />
+        <label for="last-name">Last Name:</label>
+        <input
+          type="text"
+          id="last-name"
+          class="l_name"
+          placeholder="Enter your last name"
+          required />
+        <br />
+        <label for="address">Address:</label>
+        <textarea
+          name="address"
+          id="address"
+          cols="15"
+          rows="5"
+          placeholder="Enter your address"
+          required></textarea>
+        <br />
+        <label for="pincode">Pincode:</label>
+        <input
+          type="text"
+          id="pincode"
+          class="pin"
+          placeholder="Enter your pincode"
+          required />
+        <br />
+        <label id="gender">Gender:</label>
+        <input type="radio" name="gender" value="male" required /> Male
+        <input type="radio" name="gender" value="female" required /> Female
+        <br />
+        <label>Choice of Food (Select at least 2):</label>
+        <input type="checkbox" name="food" value="pizza" /> Pizza
+        <input type="checkbox" name="food" value="burger" /> Burger
+        <input type="checkbox" name="food" value="pasta" /> Pasta
+        <input type="checkbox" name="food" value="salad" /> Salad
+        <input type="checkbox" name="food" value="icecream" /> Ice Cream
+        <br />
+        <label for="state">State:</label>
+        <input
+          type="text"
+          id="state"
+          class="st"
+          placeholder="Enter your state"
+          required />
+        <br />
+        <label for="country">Country:</label>
+        <input
+          type="text"
+          id="country"
+          class="cont"
+          placeholder="Enter your country"
+          required />
+        <br />
+        <button type="submit" id="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <table id="dataTable" class="table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Pincode</th>
+          <th>Gender</th>
+          <th>Food</th>
+          <th>State</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody class="table">
+        <!-- Table rows will be added dynamically using JavaScript -->
+      </tbody>
+    </table>
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

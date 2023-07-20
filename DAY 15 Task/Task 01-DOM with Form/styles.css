@@ -1,0 +1,103 @@
+html {
+  background-image: radial-gradient(blue, green, gold);
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+#form {
+  background-color: #7ae2ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #060606;
+  border-radius: 5px;
+}
+#title {
+  color: Red;
+  text-decoration: underline;
+}
+#form label,
+#form input,
+#form textarea,
+#form button,
+#form select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#form label {
+  font-weight: bold;
+}
+.form_topic {
+  justify-content: center;
+  text-decoration: underline;
+  color: red;
+  font-size: 28px;
+}
+.f_name,
+.l_name,
+.pin,
+.st,
+.cont {
+  width: 100%;
+  height: 28px;
+}
+#form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#form button:hover {
+  background-color: blue;
+  color: white;
+}
+
+#dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#dataTable thead {
+  background-color: #f2f2f2;
+}
+
+#dataTable th,
+#dataTable td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+#description {
+  text-align: flex-start;
+}
+#des_short {
+  color: rgb(7, 7, 88);
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 600px) {
+  #form label,
+  #form input,
+  #form textarea,
+  #form button,
+  #form select {
+    flex: 1 1 100%;
+  }
+  #dataTable {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
