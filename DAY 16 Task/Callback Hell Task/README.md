@@ -13,5 +13,5 @@ Celebrate Independence Day with this fun and interactive timer!
 
 This is also deployed in Netlify Link Given Below,
 
-https://remarkable-chaja-a88046.netlify.app/
+https://call-back-hell-task-guvi.netlify.app/
 [![Netlify Status](https://api.netlify.com/api/v1/badges/448ad27a-dd20-4a98-8466-c2cb325ff26b/deploy-status)](https://app.netlify.com/sites/call-back-hell-task-guvi/deploys)
