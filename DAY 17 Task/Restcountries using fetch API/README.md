@@ -24,5 +24,6 @@ Feel free to explore weather details for different countries using this web appl
 </p>
 <p>
 This is also deployed in <span style="font-size: large">Netlify</span> The Link is given below,
-https://rest-countries-weather-fetch-guvi.netlify.app/  [![Netlify Status](https://api.netlify.com/api/v1/badges/3c0f1e53-830f-46ef-a237-381ee1b152ed/deploy-status)](https://app.netlify.com/sites/rest-countries-weather-fetch-guvi/deploys)
 </p>
+https://rest-countries-weather-fetch-guvi.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c0f1e53-830f-46ef-a237-381ee1b152ed/deploy-status)](https://app.netlify.com/sites/rest-countries-weather-fetch-guvi/deploys)
