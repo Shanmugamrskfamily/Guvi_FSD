@@ -1,150 +1,113 @@
 async function fetchdata() {
-    let response = await fetch("https://restcountries.com/v3.1/all");
-    let data = await response.json();
-    return data;
-  }
+  let response = await fetch("https://restcountries.com/v3.1/all");
+  let data = await response.json();
+  return data;
+}
 
-  async function weatherData(id) {
-    let country = await fetchdata();
-    let cityName = country[id].name.common;
-    let apiKey = "d92e3b7365d2e22d7605e9aeb27c267e";
-    let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`,
-    );
-    let data = await response.json();
-    return data;
-  }
-
-  let outerDiv = document.createElement("div");
-  outerDiv.setAttribute("class", "container-fluid mt-2 bg-warning");
-
-  let row1 = document.createElement("div");
-  row1.setAttribute(
-    "class",
-    "row justify-content-center bg-success fs-1",
+async function weatherData(cityName) {
+  let apiKey = "865fcd9137725e9d7396bf25aa649043";
+  let response = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`,
   );
-  row1.setAttribute("style", "color:white;font-weight:bold");
-  row1.textContent = "RestCountries Weather Details";
+  let data = await response.json();
+  return data;
+}
 
-  let row2 = document.createElement("div");
-  row2.setAttribute("class", "row justify-content-center");
-  row2.setAttribute("style", "background-color: rgb(119, 155, 155)");
+async function createCardElement(
+  elementName,
+  className,
+  textContent = "",
+) {
+  const element = document.createElement(elementName);
+  element.className = className;
+  element.textContent = textContent;
+  return element;
+}
 
-  getCards();
+async function createCard(country) {
+  let name = country.name.common;
+  let capital = country.capital;
+  let region = country.region;
+  let latitude = country.latlng[0];
+  let longitude = country.latlng[1];
+  let countryCode = country.cca3;
+  let flag = country.flags.png;
 
-  document.body.prepend(outerDiv);
-  outerDiv.append(row1, row2);
+  const colDiv = document.createElement("div");
+  colDiv.className =
+    "col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4 mb-3 justify-content-center";
+  const card = document.createElement("div");
+  card.className = "card h-100";
+  card.style.backgroundColor = "#c1f470";
 
-  async function createCards(id) {
-    let content = await fetchdata();
-    let name = content[id].name.common;
-    let capital = content[id].capital;
-    let region = content[id].region;
-    let latitude = content[id].latlng[0];
-    let longitude = content[id].latlng[1];
-    let countryCode = content[id].cca3;
+  const cardHeader = document.createElement("div");
+  cardHeader.className =
+    "card-header bg-secondary text-white text-center fs-3";
+  cardHeader.textContent = name;
 
-    let flag = content[id].cca2;
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body text-center fs-4 fw-bold";
 
-    let colDiv = document.createElement("div");
-    colDiv.setAttribute(
-      "style",
-      "background-color: rgb(119, 155, 155)",
-    );
-    colDiv.setAttribute(
-      "class",
-      "col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4 mb-3 justify-content-center",
-    );
+  const cardImg = document.createElement("img");
+  cardImg.className = "card-img-top";
+  cardImg.setAttribute("style", "height:12rem; border:2px solid black");
+  cardImg.src = flag;
+  cardImg.alt = "flag";
 
-    let card = document.createElement("div");
-    card.setAttribute("class", "card m-3");
+  const details = document.createElement("div");
+  details.className = "card-text fs-5 mt-3";
+  details.innerHTML = `Capital : ${capital}<br>------------------------<br>Region : ${region}<br>------------------------<br>Latitude : ${latitude}, Longitude : ${longitude}<br>------------------------<br>Country code : ${countryCode}<br>`;
 
-    let cardHeader = document.createElement("h4");
-    cardHeader.setAttribute(
-      "class",
-      "card-header mt-2 bg-primary text-white text-center fs-3",
-    );
-    cardHeader.textContent = name;
+  const button = document.createElement("button");
+  button.className = "btn btn-primary mt-3 fs-5 fw-bold";
+  button.textContent = "Click for Weather";
+  button.onclick = async function () {
+    let w_data = await weatherData(capital);
+    let temp = w_data.main.temp;
+    let pressure = w_data.main.pressure;
+    let humidity = w_data.main.humidity;
+    let w_speed = w_data.wind.speed;
 
-    let cardBody = document.createElement("div");
-    cardBody.setAttribute(
-      "style",
-      "background-image: linear-gradient(green, yellow)",
-    );
-    cardBody.setAttribute(
-      "class",
-      "card-body text-center fs-4 fw-bold",
-    );
+    const weatherAlert = document.createElement("div");
+    weatherAlert.className = "alert alert-success text-primary mt-3";
+    const head = document.createElement("h3");
+    head.textContent = "Weather Details";
+    const list = document.createElement("p");
+    list.innerHTML = `Temperature : ${
+      temp - 273.15
+    }&deg;C<br>Pressure : ${pressure}<br>Humidity : ${humidity}<br>Wind Speed : ${w_speed}<br>`;
 
-    let image = document.createElement("img");
-    image.setAttribute("class", "card-img");
-    image.setAttribute("style", "height:12rem");
-    image.setAttribute("style", "border:2px solid black");
-    image.setAttribute(
-      "src",
-      `https://flagcdn.com/w320/${flag.toLowerCase()}.png`,
-    );
-    image.setAttribute("alt", "flag");
-
-    let details = document.createElement("div");
-    details.setAttribute("class", "fs-5 mt-3");
-    details.innerHTML = `Capital : ${capital}<br>`;
-    details.innerHTML += "------------------------<br>";
-    details.innerHTML += `Region : ${region}<br>`;
-    details.innerHTML += "------------------------<br>";
-    details.innerHTML += `Latitude : ${latitude}, Longitude : ${longitude}<br>`;
-    details.innerHTML += "------------------------<br>";
-    details.innerHTML += `Country code : ${countryCode}<br>`;
-
-    let button = document.createElement("button");
-    button.setAttribute("class", "btn btn-primary mt-3 fs-5 fw-bold");
-    button.textContent = "Click for Weather";
-    button.onclick = async function () {
-      let w_data = await weatherData(id);
-      let temp = w_data.main.temp;
-      let pressure = w_data.main.pressure;
-      let humidity = w_data.main.humidity;
-      let w_speed = w_data.wind.speed;
-
-      let alert = document.createElement("div");
-      alert.setAttribute(
-        "style",
-        "background-image: linear-gradient(green, yellow)",
-      );
-      alert.setAttribute("style", "color:White");
-
-      let head = document.createElement("h3");
-      head.innerHTML = "Weather Details";
-
-      let list = document.createElement("p");
-      list.innerHTML += `Temprature : ${temp - 273.15}&deg;C<br>`;
-      list.innerHTML += `Pressure : ${pressure}<br>`;
-      list.innerHTML += `Humidity : ${humidity}<br>`;
-      list.innerHTML += `Wind Speed : ${w_speed}<br>`;
-
-      let button1 = document.createElement("button");
-      button1.classList.add("btn", "btn-primary");
-      button1.innerText = "Go Back";
-      button1.onclick = function () {
-        cardBody.removeChild(alert);
-        cardBody.append(image, details);
-      };
-
-      alert.append(head, list, button1);
-      cardBody.removeChild(details);
-      cardBody.removeChild(image);
-      cardBody.appendChild(alert);
+    const button1 = document.createElement("button");
+    button1.className = "btn btn-primary mt-2";
+    button1.textContent = "Go Back";
+    button1.onclick = function () {
+      cardBody.removeChild(weatherAlert);
+      cardBody.append(cardImg, details);
     };
 
-    colDiv.appendChild(card);
-    card.append(cardHeader, cardBody);
-    cardBody.append(image, details);
-    details.appendChild(button);
-    row2.append(colDiv);
-  }
+    weatherAlert.append(head, list, button1);
+    cardBody.removeChild(details);
+    cardBody.removeChild(cardImg);
+    cardBody.appendChild(weatherAlert);
+  };
 
-  async function getCards() {
-    for (let i = 0; i < 250; i++) {
-      await createCards(i);
-    }
+  colDiv.appendChild(card);
+  card.append(cardHeader, cardBody);
+  cardBody.append(cardImg, details);
+  details.appendChild(button);
+
+  return colDiv;
+}
+
+async function createCards() {
+  const container = document.getElementById("container");
+  const cardRow = document.getElementById("cardRow");
+
+  const content = await fetchdata();
+  for (let country of content) {
+    const card = await createCard(country);
+    cardRow.appendChild(card);
   }
+}
+
+createCards();
