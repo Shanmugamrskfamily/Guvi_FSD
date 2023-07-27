@@ -19,7 +19,7 @@ The application will load the weather details for various countries on the page.
 <h3>Note</h3>
 <p>
 The application may not work correctly if the "https://restcountries.com/v3.1/all" or OpenWeatherMap API endpoints are unavailable or have changed.
-The program uses the API key "d92e3b7365d2e22d7605e9aeb27c267e" for accessing the OpenWeatherMap API. If this key is invalidated, the weather data retrieval may not work. Ensure the API key is valid before usage.
+The program uses the API key "8b973bd34aa2e73ac4742be2bd31c654" for accessing the OpenWeatherMap API. If this key is invalidated, the weather data retrieval may not work. Ensure the API key is valid before usage.
 Feel free to explore weather details for different countries using this web application!
 </p>
 <p>
