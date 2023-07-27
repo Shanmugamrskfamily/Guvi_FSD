@@ -5,7 +5,7 @@ async function fetchdata() {
 }
 
 async function weatherData(cityName) {
-  let apiKey = "865fcd9137725e9d7396bf25aa649043";
+  let apiKey = "8b973bd34aa2e73ac4742be2bd31c654";
   let response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`,
   );
@@ -38,11 +38,15 @@ async function createCard(country) {
     "col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-4 mb-3 justify-content-center";
   const card = document.createElement("div");
   card.className = "card h-100";
-  card.style.backgroundColor = "#c1f470";
-
+  card.style.backgroundImage = 'url("https://images.theconversation.com/files/232705/original/file-20180820-30593-1nxanpj.jpg")';
+  card.style.backgroundSize = "100%";
+  card.style.backgroundRepeat = "repeat";
+  card.style.color="black";
+  
+  
   const cardHeader = document.createElement("div");
   cardHeader.className =
-    "card-header bg-secondary text-white text-center fs-3";
+    "card-header text-white bg-primary text-center fs-3";
   cardHeader.textContent = name;
 
   const cardBody = document.createElement("div");
@@ -69,7 +73,7 @@ async function createCard(country) {
     let w_speed = w_data.wind.speed;
 
     const weatherAlert = document.createElement("div");
-    weatherAlert.className = "alert alert-success text-primary mt-3";
+    weatherAlert.className = "alert alert-light text-dark mt-3";
     const head = document.createElement("h3");
     head.textContent = "Weather Details";
     const list = document.createElement("p");
