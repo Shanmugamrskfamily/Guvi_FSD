@@ -54,7 +54,7 @@ async function createCard(country) {
 
   const cardImg = document.createElement("img");
   cardImg.className = "card-img-top";
-  cardImg.setAttribute("style", "height:12rem; border:2px solid black");
+  cardImg.setAttribute("style", "height:8rem;width:12rem ; border:2px solid black");
   cardImg.src = flag;
   cardImg.alt = "flag";
 
@@ -79,7 +79,7 @@ async function createCard(country) {
     const list = document.createElement("p");
     list.innerHTML = `Temperature : ${
       temp - 273.15
-    }&deg;C<br>Pressure : ${pressure}<br>Humidity : ${humidity}<br>Wind Speed : ${w_speed}<br>`;
+    }&deg;C<br>Pressure : ${pressure}mb<br>Humidity : ${humidity}%<br>Wind Speed : ${w_speed}km/h<br>`;
 
     const button1 = document.createElement("button");
     button1.className = "btn btn-primary mt-2";
