@@ -19,10 +19,10 @@ The application will load the weather details for various countries on the page.
 <h3>Note</h3>
 <p>
 The application may not work correctly if the "https://restcountries.com/v3.1/all" or OpenWeatherMap API endpoints are unavailable or have changed.
-The program uses the API key "d92e3b7365d2e22d7605e9aeb27c267e" for accessing the OpenWeatherMap API. If this key is invalidated, the weather data retrieval may not work. Ensure the API key is valid before usage.
+The program uses the API key "8b973bd34aa2e73ac4742be2bd31c654" for accessing the OpenWeatherMap API. If this key is invalidated, the weather data retrieval may not work. Ensure the API key is valid before usage.
 Feel free to explore weather details for different countries using this web application!
 </p>
 <p>
 This is also deployed in <span style="font-size: large">Netlify</span> The Link is given below,
 </p>
-https://rest-countries-weather-fetch-guvi.netlify.app/ [![Netlify Status](https://api.netlify.com/api/v1/badges/3c0f1e53-830f-46ef-a237-381ee1b152ed/deploy-status)](https://app.netlify.com/sites/rest-countries-weather-fetch-guvi/deploys) 
+https://rest-countries-weather-fetch-guvi.netlify.app/     [![Netlify Status](https://api.netlify.com/api/v1/badges/6c35272a-e8d6-4ffc-ba6c-9b325c4928d1/deploy-status)](https://app.netlify.com/sites/rest-countries-weather-fetch-guvi/deploys)
