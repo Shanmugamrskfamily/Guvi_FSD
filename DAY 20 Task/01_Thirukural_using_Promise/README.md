@@ -30,7 +30,7 @@ The application will display the Tamil and English version of the Kural, along w
 <h3>Installation</h3>
 <p>
 Clone the repository to your local machine:
-git clone https://github.com/your-username/thirukkural-search.git
+git clone https://github.com/Shanmugamrskfamily/Guvi_FSD/tree/926ddc3431d030427707870032516a661e7c97f6/DAY%2020%20Task/01_Thirukural_using_Promise
 Open the index.html file in your preferred web browser to use the application.
 </p>
 <h3>License</h3>
