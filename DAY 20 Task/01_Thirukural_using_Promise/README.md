@@ -30,7 +30,7 @@ The application will display the Tamil and English version of the Kural, along w
 <h3>Installation</h3>
 <p>
 Clone the repository to your local machine:
-git clone https://github.com/your-username/thirukkural-search.git
+git clone https://github.com/Shanmugamrskfamily/Guvi_FSD/tree/926ddc3431d030427707870032516a661e7c97f6/DAY%2020%20Task/01_Thirukural_using_Promise
 Open the index.html file in your preferred web browser to use the application.
 </p>
 <h3>License</h3>
@@ -39,5 +39,7 @@ The content of this project is licensed under the MIT license. Feel free to modi
 <h3>Netlify<h3>
 <p>
 This is also deployed in Netlify, the link is below,
+https://thirukkural-using-promise-guvi.netlify.app/ 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2382faa-3d1e-45e6-9e48-04e14753dc79/deploy-status)](https://app.netlify.com/sites/thirukkural-using-promise-guvi/deploys)
 </p>
