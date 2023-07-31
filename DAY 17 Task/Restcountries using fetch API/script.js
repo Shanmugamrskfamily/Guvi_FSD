@@ -13,16 +13,6 @@ async function weatherData(cityName) {
   return data;
 }
 
-async function createCardElement(
-  elementName,
-  className,
-  textContent = "",
-) {
-  const element = document.createElement(elementName);
-  element.className = className;
-  element.textContent = textContent;
-  return element;
-}
 
 async function createCard(country) {
   let name = country.name.common;
