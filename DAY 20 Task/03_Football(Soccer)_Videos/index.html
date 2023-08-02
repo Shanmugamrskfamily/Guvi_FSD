@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Updates by SHANMUGAM</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Special+Elite&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1><b> ⚽Live-Football Match Details⚽ </b></h1>
+      <button id="btn">Get Latest Match Highlights</button>
+      <button id="btn-2">Get The Live Score</button>
+    </div>
+    <div class="result" id="result1">
+      <h2>Latest Match Highlights</h2>
+      <div class="displayResults"></div>
+    </div>
+    <div class="result" id="result2">
+      <h2>Live Score Update</h2>
+      <div class="displayResults2">
+        <iframe
+          src="https://www.scorebat.com/embed/livescore/?token=MTAwMzQ3XzE2OTA5NzY2OThfOTFjZDZjY2I4N2IwZjY4MTVhOWNhZjk4NGFmYzdmZDQyZDI0Y2FhYQ=="
+          frameborder="0"
+          width="600"
+          height="760"
+          allowfullscreen
+          allow="autoplay; fullscreen"
+          style="width: 100%; height: 760px; overflow: hidden; display: block"
+          class="_scorebatEmbeddedPlayer_"></iframe>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous" />
+    <title>IQA-Air Quality and Weather Data</title>
+  </head>
+  <body>
+    <div class="container" id="tiltlehead">
+      <h1 id="title">IQA-Air Quality and Weather Data</h1>
+    </div>
+    <div class="row" id="card">
+      <div class="form" id="form">
+        <form>
+          <label for="CountryName">Select The Country Name</label>
+          <select name="CountryName" id="CountryNames" required></select>
+          <br />
+          <label for="StateName">Select The State Name</label>
+          <select name="StateName" id="StateNames" required></select>
+          <br />
+          <label for="CityName">Select City NAme</label>
+          <select name="CityName" id="CityName" required></select>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      async function fetchdata() {
+        let response = await fetch(
+          "http://api.airvisual.com/v2/countries?key=99e874e7-f3b1-4d29-9430-6732230893eb",
+        );
+        let data = await response.json();
+        return data;
+      }
+
+      async function createCards() {
+        const content = await fetchdata();
+        const countries = content.data.map((country) => country.country);
+
+        // Create the select options.
+        const selectOptions = countries.map(
+          (country) => `<option value="${country}">${country}</option>`,
+        );
+
+        // Add the select options to the select element.
+        document.getElementById("CountryNames").innerHTML =
+          selectOptions.join("");
+
+        // Add event listener to the select element to handle change
+        document
+          .getElementById("CountryNames")
+          .addEventListener("change", async (event) => {
+            const selectedCountry = event.target.value;
+            await fetchStateData(selectedCountry);
+          });
+      }
+
+      createCards();
+
+      async function fetchStateData(selectedCountry) {
+        let response = await fetch(
+          `http://api.airvisual.com/v2/states?country=${selectedCountry}&key=99e874e7-f3b1-4d29-9430-6732230893eb`,
+        );
+        let stateData = await response.json();
+        // Do something with the stateData for the selected country.
+        const states = stateData.data.map((state) => state.state);
+        const stateSelectOptions = states.map(
+          (state) => `<option value="${state}">${state}</option>`,
+        );
+        document.getElementById("StateNames").innerHTML =
+          stateSelectOptions.join("");
+      }
+
+      // Add event listener to the select element to handle change
+      document
+        .getElementById("CountryNames")
+        .addEventListener("change", async (event) => {
+          const selectedCountry = event.target.value;
+          await fetchStateData(selectedCountry);
+        });
+      async function fetchCityData(selectedCountry, selectedState) {
+        let response = await fetch(
+          `http://api.airvisual.com/v2/cities?state=${selectedState}&country=${selectedCountry}&key=99e874e7-f3b1-4d29-9430-6732230893eb`,
+        );
+        let cityData = await response.json();
+        console.log(cityData);
+        // // Do something with the cityData for the selected country and state.
+        // const cities = cityData.data.map((city) => city.city);
+        // // const citySelectOptions = cities.map(
+        // //   (city) => `<option value="${city}">${city}</option>`,
+        // // );
+        // // document.getElementById("CityName").innerHTML =
+        // //   citySelectOptions.join("");
+        // console.log(cities);
+      }
+
+      // Add event listener to the select element to handle change
+      document
+        .getElementById("StateNames")
+        .addEventListener("change", async (event) => {
+          const selectedCountry = document.getElementById("CountryNames").value;
+          const selectedState = event.target.value;
+          await fetchCityData(selectedCountry, selectedState);
+        });
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+.header {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  background: #171515;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+h1 {
+  background-color: #0563bb;
+}
+h2 {
+  font-family: "Verdana", sans-serif;
+  color: white;
+}
+.card {
+  padding: 10px;
+  background-color: rgb(55, 90, 228);
+  border-radius: 10px;
+  display: grid;
+  justify-items: flex-start;
+  font-family: "Verdana", cursive;
+  color: white;
+}
+.displayResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+.result {
+  margin-top: 20px;
+  display: none;
+}
+.result.show {
+  display: block;
+}
+body {
+  background-color: #38f1c6;
+}
+b {
+  color: white;
+  font-family: "Verdana", sans-serif;
+}
+#btn {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  background: none;
+  border-radius: 2px;
+  padding: 15px;
+  color: white;
+  background-color: black;
+}
+#btn:hover {
+  color: white;
+  background-color: #0563bb;
+}
+#btn-2 {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  background: none;
+  border-radius: 2px;
+  padding: 15px;
+  color: white;
+  background-color: black;
+}
+#btn-2:hover {
+  color: white;
+  background-color: #0563bb;
+}
