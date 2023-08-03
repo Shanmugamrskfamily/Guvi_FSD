@@ -71,3 +71,34 @@ b {
   color: white;
   background-color: #0563bb;
 }
+/* styles.css */
+#top {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  z-index: 1; /* Set the z-index to 1 to make it appear above the video */
+  padding: 10px;
+}
+
+#top h1 {
+  font-family: "Lobster", cursive;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#top button {
+  font-family: "Orbitron", "Special Elite", sans-serif;
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#top button:hover {
+  background-color: #45a049;
+}
