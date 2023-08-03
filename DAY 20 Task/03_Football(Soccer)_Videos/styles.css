@@ -16,7 +16,12 @@ h2 {
 }
 .card {
   padding: 10px;
-  background-color: rgb(55, 90, 228);
+  background: linear-gradient(
+    0deg,
+    rgba(102, 35, 66, 0.801733193277311) 4%,
+    rgba(242, 116, 97, 1) 33%,
+    rgba(147, 105, 15, 1) 100%
+  );
   border-radius: 10px;
   display: grid;
   justify-items: flex-start;
@@ -36,7 +41,13 @@ h2 {
   display: block;
 }
 body {
-  background-color: #38f1c6;
+  background: linear-gradient(
+    90deg,
+    rgba(142, 61, 234, 1) 23%,
+    rgba(228, 69, 107, 1) 41%,
+    rgba(69, 228, 210, 1) 64%,
+    rgba(195, 194, 81, 1) 81%
+  );
 }
 b {
   color: white;
