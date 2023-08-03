@@ -40,15 +40,7 @@ h2 {
 .result.show {
   display: block;
 }
-body {
-  background: linear-gradient(
-    90deg,
-    rgba(142, 61, 234, 1) 23%,
-    rgba(228, 69, 107, 1) 41%,
-    rgba(69, 228, 210, 1) 64%,
-    rgba(195, 194, 81, 1) 81%
-  );
-}
+
 b {
   color: white;
   font-family: "Verdana", sans-serif;
